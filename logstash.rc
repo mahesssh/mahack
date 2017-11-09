@@ -1,5 +1,5 @@
 #Collecting syslogs
-
+this is newly edit
 input{
 syslog {
 type=> 'syslog'
