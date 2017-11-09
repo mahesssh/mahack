@@ -1,0 +1,28 @@
+#Collecting syslogs
+
+input{
+syslog {
+type=> 'syslog'
+port=>5544
+}
+}
+
+filter {
+}
+
+
+output 
+{
+elasticsearch
+{
+hosts=>["127.0.0.1:9200"]
+sniffing=>true
+manage_template=>false
+index=>"logstash-%[+YYYY.MM.dd]"
+document_type=>"plain/text"
+}
+stdout {codec => rubydebug {metadata => true }}
+
+
+
+}
